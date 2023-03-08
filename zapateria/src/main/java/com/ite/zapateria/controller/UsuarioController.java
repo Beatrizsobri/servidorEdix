@@ -14,9 +14,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ite.zapateria.modelo.dao.DireccionDao;
 import com.ite.zapateria.modelo.dao.RolDao;
+import com.ite.zapateria.modelo.dao.TarjetaDao;
 import com.ite.zapateria.modelo.dao.UsuarioDao;
 import com.ite.zapateria.modelo.entities.Direccion;
 import com.ite.zapateria.modelo.entities.Role;
+import com.ite.zapateria.modelo.entities.Tarjeta;
 import com.ite.zapateria.modelo.entities.Usuario;
 @RequestMapping("/usuarios")
 @Controller
@@ -30,6 +32,8 @@ public class UsuarioController {
 	private PasswordEncoder passwordEncoder;
 	@Autowired
 	DireccionDao listaDirecciones;
+	@Autowired
+	TarjetaDao listaTarjetas;
 	
 	@GetMapping("/registro/cliente")
 	public String registroCliente(Model model) {
@@ -97,5 +101,17 @@ public class UsuarioController {
 	public String registroTarjeta() {
 		
 		return "registrotarjeta";
+	}
+	
+	@PostMapping("/registro/tarjeta")
+	public String altaTarjeta(@RequestParam String titular, @RequestParam int numero, RedirectAttributes redirect, Principal principal) {
+		
+		Usuario usuario= listaUsuarios.buscarByEmail(principal.getName());
+		Tarjeta tarjeta = new Tarjeta(0, numero, titular);
+		usuario.addTarjeta(tarjeta);
+		listaTarjetas.altaTarjeta(tarjeta);
+		redirect.addFlashAttribute("mensaje", "Nueva tarjeta añadida correctamente");
+		
+		return "redirect:/usuarios/registro/tarjeta";
 	}
 }

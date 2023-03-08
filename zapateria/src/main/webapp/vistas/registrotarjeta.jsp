@@ -13,6 +13,7 @@
 				<input type="number" placeholder="Número tarjeta" name="numero" min="1" max="99999999">
 				<input type="submit" value="Enviar"/>
 		</form>
+	<h2>${mensaje}</h2>
 	<h2><a href="/menu">Volver</a></h2>
 </body>
 </html>

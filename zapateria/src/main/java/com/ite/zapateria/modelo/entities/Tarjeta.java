@@ -70,4 +70,11 @@ public class Tarjeta implements Serializable {
 		return true;
 	}
 
+	public Tarjeta(int idTarjeta, int numero, String titular) {
+		super();
+		this.idTarjeta = idTarjeta;
+		this.numero = numero;
+		this.titular = titular;
+	}
+
 }
