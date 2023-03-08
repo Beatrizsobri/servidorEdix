@@ -4,20 +4,36 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Gestión producto</title>
+<title>GestiÃ³n producto</title>
 </head>
-<body>
-
-<h2>${mensaje}</h2>
- 	<form method="post">
-		<input type="text" placeholder="Nombre" name="nombre" value="${producto.nombre}">
-		<input type="text" placeholder="Descripción" name="descripcion" value="${producto.descripcion}">
-		<input type="number" placeholder="Precio" name="precio" step=".01" value="${producto.precio}">
-		<input type="text" placeholder="Categoría" name="categoria" value="${producto.categoria}">
-		<input type="number" placeholder="Stock" name="stock" value="${producto.stock}">
-		<input type="submit" value="Enviar"/>
-	</form>
-	<h2>${info}</h2>
-		<h2><a href="/productos/todos">Volver</a></h2>
+<body class="bg-light">
+	<div class="container border bg-light rounded">
+		<h2 class="mt-3">${mensaje}</h2>
+		<form method="post">
+			<div class="form-group">
+				<label for="nombre">Nombre</label>
+				<input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre" name="nombre" value="${producto.nombre}">
+			</div>
+			<div class="form-group">
+				<label for="descripcion">DescripciÃ³n</label>
+				<input type="text" class="form-control" id="descripcion" placeholder="Ingrese la descripciÃ³n" name="descripcion" value="${producto.descripcion}">
+			</div>
+			<div class="form-group">
+				<label for="precio">Precio</label>
+				<input type="number" class="form-control" id="precio" placeholder="Ingrese el precio" name="precio" step=".01" value="${producto.precio}">
+			</div>
+			<div class="form-group">
+				<label for="categoria">CategorÃ­a</label>
+				<input type="text" class="form-control" id="categoria" placeholder="Ingrese la categorÃ­a" name="categoria" value="${producto.categoria}">
+			</div>
+			<div class="form-group">
+				<label for="stock">Stock</label>
+				<input type="number" class="form-control" id="stock" placeholder="Ingrese el stock" name="stock" value="${producto.stock}">
+			</div>
+			<button type="submit" class="btn btn-primary">Enviar</button>
+		</form>
+		<h2 class="mt-5">${info}</h2>
+		<h2 class="mt-3"><a href="/productos/todos" class="btn btn-link">Volver</a></h2>
+	</div>
 </body>
 </html>
