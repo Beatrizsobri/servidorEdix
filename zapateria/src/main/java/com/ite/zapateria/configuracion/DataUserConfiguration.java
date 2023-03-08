@@ -46,6 +46,8 @@ public class DataUserConfiguration extends WebSecurityConfigurerAdapter{
 			.antMatchers("/usuarios/registro/direccion").hasAnyAuthority("Cliente")
 			.antMatchers("/usuarios/registro/tarjeta").hasAnyAuthority("Cliente")
 			.antMatchers("/usuarios/registro/administrador").hasAnyAuthority("Administrador")
+			.antMatchers("/productos/eliminar/**").hasAnyAuthority("Administrador")
+			.antMatchers("/productos/modificar/**").hasAnyAuthority("Administrador")
 			.antMatchers("/logout").hasAnyAuthority("Administrador","Cliente")
 			
 			// Todas las demás URLs de la Aplicación requieren autenticación

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +24,12 @@
 				    <h4 class="card-title">${producto.nombre}</h4>
 				    <p class="card-text">${producto.categoria}</p>
 				    <a href="/productos/detalle/${producto.idProducto}" class="btn btn-primary">Detalle</a>
+				    <sec:authorize access="hasAuthority('Administrador')">				    
+					    <div class="btn-group mt-2">
+							<a class="btn btn-danger" href="/productos/eliminar/${producto.idProducto}">Eliminar</a>
+							<a class="btn btn-info" href="/productos/modificar/${producto.idProducto}">Modificar</a>
+						</div>
+					</sec:authorize>    
 				  </div>
 				</div>
 			  </div>
