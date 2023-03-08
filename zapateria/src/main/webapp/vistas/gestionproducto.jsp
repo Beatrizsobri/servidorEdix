@@ -17,7 +17,10 @@
 		<div class="col-10">
 			<div class="page-header m-4">
 		    	<h1>${mensaje}</h1>
-		    	<h2 class="mt-2">${info}</h2>
+		    	<div class="alert alert-success">
+				  ${info}
+				</div>
+		    	<h2 class="mt-2"></h2>
 		  	</div>
 		  	<div>
 				<form method="post">

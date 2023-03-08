@@ -12,8 +12,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body class="bg-light">
+<jsp:include page="menu.jsp"/>
 	<div class="container bg-white rounded border">
 		<h1 class="mt-3">Registre nueva dirección</h1>
+		<div class="alert alert-success">
+		  	${mensaje}
+		</div>
 		<form action="" method="post">
 			<div class="form-row">
 				<div class="form-group col-md-4">
@@ -35,8 +39,6 @@
 			</div>
 			<button type="submit" class="btn btn-primary">Enviar</button>
 		</form>
-		<h2 class="mt-5">${mensaje}</h2>
-		<h2 class="mt-3"><a href="/menu" class="btn btn-link">Volver</a></h2>
 	</div>
 </body>
 </html>
