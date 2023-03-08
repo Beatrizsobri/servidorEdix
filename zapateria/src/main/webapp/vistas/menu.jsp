@@ -25,8 +25,8 @@
       			<li class="nav-item"><a href="/usuarios/registro/cliente" class="nav-link">Resgistrase</a></li>
       		</sec:authorize>
       		<sec:authorize access="hasAuthority('Cliente')">
-				<li class="nav-item"><a href="/" class="nav-link">Registrar Tarjeta</a></li>
-				<li class="nav-item"><a href="/" class="nav-link">Registrar Dirección</a></li>  
+				<li class="nav-item"><a href="/usuarios/registro/tarjeta" class="nav-link">Registrar Tarjeta</a></li>
+				<li class="nav-item"><a href="/usuarios/registro/direccion" class="nav-link">Registrar Dirección</a></li>   
 			</sec:authorize> 
    			<sec:authorize access="hasAuthority('Administrador')">
 				<li class="nav-item"><a href="/usuarios/registro/administrador" class="nav-link">Registrar Nuevo Administrador</a></li> 
