@@ -35,9 +35,6 @@
 	</div>
 </div>
 
-			<!-- <td><a href="/productos/eliminar/${producto.idProducto}">Eliminar</a></td>
-			<td><a href="/productos/modificar/${producto.idProducto}">Modificar</a></td> -->
-
-
+			
 </body>
 </html>
