@@ -39,7 +39,7 @@ public class Usuario implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="id_rol")
 	private Role role;
-
+	
 	//uni-directional many-to-many association to Direccion
 	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(

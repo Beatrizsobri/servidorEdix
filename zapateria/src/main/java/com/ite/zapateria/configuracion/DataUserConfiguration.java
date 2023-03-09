@@ -17,6 +17,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class DataUserConfiguration extends WebSecurityConfigurerAdapter{
 	@Autowired
 	private DataSource dataSource;
+	
+	@Autowired
+	private LoginHandler loginHandler;
+	
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 	auth
 	.jdbcAuthentication().dataSource(dataSource)
@@ -54,7 +58,7 @@ public class DataUserConfiguration extends WebSecurityConfigurerAdapter{
 			// Todas las demás URLs de la Aplicación requieren autenticación
 			.anyRequest().authenticated()
 			// El formulario de Login no requiere autenticacion
-			.and().formLogin().permitAll()
+			.and().formLogin().permitAll().successHandler(loginHandler)
 			// El formulario de logout no requiere autenticacion
 	//		.and().logout().permitAll()
 			;
