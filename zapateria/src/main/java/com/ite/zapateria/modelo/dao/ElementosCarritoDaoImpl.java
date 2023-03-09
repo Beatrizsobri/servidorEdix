@@ -27,7 +27,7 @@ public class ElementosCarritoDaoImpl implements ElementosCarritoDao{
 	public List<ElementosCarrito> porUsuario(int idUsuario) {
 		return listaElementosCarrito.buscarPorUsuario(idUsuario);
 	}
-
+	
 	@Override
 	public ElementosCarrito añadirProducto(int idUsuario, int idProducto, int cantidad) {
 		ElementosCarrito ec = getElementosCarrito(idUsuario, idProducto);

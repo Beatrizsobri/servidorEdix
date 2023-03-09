@@ -1,7 +1,6 @@
 package com.ite.zapateria.controller;
 
 import java.security.Principal;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,8 +19,6 @@ import com.ite.zapateria.modelo.dao.RolDao;
 import com.ite.zapateria.modelo.dao.TarjetaDao;
 import com.ite.zapateria.modelo.dao.UsuarioDao;
 import com.ite.zapateria.modelo.entities.Direccion;
-import com.ite.zapateria.modelo.entities.Pedido;
-import com.ite.zapateria.modelo.entities.Producto;
 import com.ite.zapateria.modelo.entities.Role;
 import com.ite.zapateria.modelo.entities.Tarjeta;
 import com.ite.zapateria.modelo.entities.Usuario;

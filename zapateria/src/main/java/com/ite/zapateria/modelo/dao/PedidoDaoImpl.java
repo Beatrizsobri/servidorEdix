@@ -41,12 +41,6 @@ public class PedidoDaoImpl implements PedidoDao{
 	}
 	
 	@Override
-	public List<Pedido> buscarTodos() {
-		// TODO Auto-generated method stub
-		return listaPedidos.findAll();
-	}
-	
-	@Override
 	public List<Pedido> buscarPorUsuario(int idUsuario) {
 		return listaPedidos.findByUsuario(idUsuario);
 	}

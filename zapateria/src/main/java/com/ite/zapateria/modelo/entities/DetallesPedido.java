@@ -66,4 +66,12 @@ public class DetallesPedido implements Serializable {
 		this.producto = producto;
 	}
 
+	public DetallesPedido(int idDetalle, int cantidad, Pedido pedido, Producto producto) {
+		super();
+		this.idDetalle = idDetalle;
+		this.cantidad = cantidad;
+		this.pedido = pedido;
+		this.producto = producto;
+	}
+
 }
