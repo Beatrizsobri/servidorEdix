@@ -10,5 +10,7 @@ public interface PedidoDao {
 	Pedido buscarUno(int idPedido);
 	List<Pedido> buscarPorDia(Date fecha);
 	int salvarCarrito();
+	List<Pedido> buscarTodos();
+	List<Pedido> buscarPorUsuario(int idUsuario);
 
 }

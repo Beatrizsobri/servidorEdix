@@ -15,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ite.zapateria.modelo.dao.DireccionDao;
+import com.ite.zapateria.modelo.dao.PedidoDao;
 import com.ite.zapateria.modelo.dao.RolDao;
 import com.ite.zapateria.modelo.dao.TarjetaDao;
 import com.ite.zapateria.modelo.dao.UsuarioDao;
 import com.ite.zapateria.modelo.entities.Direccion;
+import com.ite.zapateria.modelo.entities.Pedido;
 import com.ite.zapateria.modelo.entities.Producto;
 import com.ite.zapateria.modelo.entities.Role;
 import com.ite.zapateria.modelo.entities.Tarjeta;
@@ -37,7 +39,8 @@ public class UsuarioController {
 	DireccionDao listaDirecciones;
 	@Autowired
 	TarjetaDao listaTarjetas;
-	
+	@Autowired
+	PedidoDao listaPedidos;
 	
 	@GetMapping("/clientes")
 	public String listaCliente(Model model) {
@@ -48,7 +51,9 @@ public class UsuarioController {
 	@GetMapping("/verficha/{id}")
 	public String fichaCliente(Model model, @PathVariable ("id") int idUsuario) {
 		Usuario usuario = listaUsuarios.buscarUsuario(idUsuario);
+
 		model.addAttribute("cliente", usuario);
+		model.addAttribute("listapedidos", listaPedidos.buscarPorUsuario(idUsuario));
 		return "fichacliente";
 	}
 	
