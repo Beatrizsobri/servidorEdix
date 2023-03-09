@@ -1,12 +1,14 @@
 package com.ite.zapateria.controller;
 
 import java.security.Principal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +19,7 @@ import com.ite.zapateria.modelo.dao.RolDao;
 import com.ite.zapateria.modelo.dao.TarjetaDao;
 import com.ite.zapateria.modelo.dao.UsuarioDao;
 import com.ite.zapateria.modelo.entities.Direccion;
+import com.ite.zapateria.modelo.entities.Producto;
 import com.ite.zapateria.modelo.entities.Role;
 import com.ite.zapateria.modelo.entities.Tarjeta;
 import com.ite.zapateria.modelo.entities.Usuario;
@@ -34,6 +37,22 @@ public class UsuarioController {
 	DireccionDao listaDirecciones;
 	@Autowired
 	TarjetaDao listaTarjetas;
+	
+	
+	@GetMapping("/clientes")
+	public String listaCliente(Model model) {
+		model.addAttribute("listaUsuarios", listaUsuarios.buscarTodos());
+		return "clientes";
+	}
+	
+	@GetMapping("/verficha/{id}")
+	public String fichaCliente(Model model, @PathVariable ("id") int idUsuario) {
+		Usuario usuario = listaUsuarios.buscarUsuario(idUsuario);
+		model.addAttribute("cliente", usuario);
+		return "fichacliente";
+	}
+	
+	
 	
 	@GetMapping("/registro/cliente")
 	public String registroCliente(Model model) {

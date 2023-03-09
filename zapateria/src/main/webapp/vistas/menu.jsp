@@ -29,7 +29,8 @@
 				<li class="nav-item"><a href="/usuarios/registro/direccion" class="nav-link">Registrar Dirección</a></li>   
 			</sec:authorize> 
    			<sec:authorize access="hasAuthority('Administrador')">
-				<li class="nav-item"><a href="/usuarios/registro/administrador" class="nav-link">Registrar Nuevo Administrador</a></li> 
+				<li class="nav-item"><a href="/usuarios/registro/administrador" class="nav-link">Registrar Nuevo Administrador</a></li>
+				<li class="nav-item"><a href="/usuarios/clientes" class="nav-link">Clientes</a></li>  
 			</sec:authorize>        		 
     </ul>
   </div>
