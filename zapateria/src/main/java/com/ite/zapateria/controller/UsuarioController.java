@@ -58,10 +58,10 @@ public class UsuarioController {
 		if(listaUsuarios.altaUsuario(usuario)==null) {
 			redirect.addFlashAttribute("info", "Cliente ya existe. No se puede dar de alta");
 		}else {
-			redirect.addFlashAttribute("info", "Cliente dado de alta correctamente");
+			redirect.addFlashAttribute("info", "Cliente dado de alta correctamente, ya puede iniciar sesión");
 		}
 		
-		return "redirect:/productos/todos";
+		return "redirect:/usuarios/registro/cliente";
 	}
 	@PostMapping("/alta/administrador")
 	public String altaAdministrador(@RequestParam String nombre, @RequestParam String apellido,@RequestParam String password, 
@@ -73,7 +73,7 @@ public class UsuarioController {
 		if(listaUsuarios.altaUsuario(usuario)==null) {
 			redirect.addFlashAttribute("info", "Administrador ya existe. No se puede dar de alta");
 		}else {
-			redirect.addFlashAttribute("info", "Administrador dado de alta correctamente");
+			redirect.addFlashAttribute("info", "Administrador dado de alta correctamente, ya puede iniciar sesión");
 		}
 		
 		return "redirect:/usuarios/registro/administrador";

@@ -1,5 +1,6 @@
 
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,9 +15,16 @@
 <jsp:include page="menu.jsp"/>
 	<div class="container bg-white rounded border">
 		<h1 class="mt-3">Registre nueva dirección</h1>
-		<div class="alert alert-success">
-		  	${mensaje}
-		</div>
+			<c:choose>
+		       <c:when test="${mensaje == null}">
+		       </c:when>
+		       <c:otherwise>
+		             	<div class="alert alert-success">
+							${mensaje}
+						</div>
+		       </c:otherwise>
+		  	</c:choose>
+
 		<form action="" method="post">
 			<div class="form-row">
 				<div class="form-group col-md-4">
