@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import com.ite.zapateria.modelo.entities.ElementosCarrito;
 
 public interface ElementosCarritoRepository extends JpaRepository<ElementosCarrito, Integer>{
+
 	@Query("select e from ElementosCarrito e where e.usuario.idUsuario=?1")
 	public List<ElementosCarrito> buscarPorUsuario(int idUsuario);
 

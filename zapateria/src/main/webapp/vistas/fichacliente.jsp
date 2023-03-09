@@ -50,7 +50,9 @@
 						<tr>
 							<td>${pedido.idPedido}</td>
 							<td>${pedido.fecha}</td>
-							<td>ver</td>
+							<td>
+							<a href="/pedidos/detalle/${pedido.idPedido}" class="btn btn-primary">Detalle</a>
+							</td>
 						</tr>
 					</c:forEach>
 				</table>
