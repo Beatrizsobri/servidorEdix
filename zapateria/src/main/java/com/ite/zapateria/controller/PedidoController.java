@@ -61,27 +61,9 @@ public class PedidoController {
 	}
 	
 	@GetMapping("/detalle/{id}")
-	public String pedidoDetalle(Model model, RedirectAttributes rattr, @PathVariable("id") int idPedido, Principal principal, HttpSession session) {
-		/*Producto producto = pdao.buscarUno(idProducto);
-		int idUser = udao.buscarByEmail(principal.getName()).getIdUsuario();
-		ElementosCarrito ec = ecdao.getElementosCarrito(idUser, idProducto);
-		int yaEnCarrito = 0;
-		if(ec!=null) {
-			yaEnCarrito = ec.getCantidad();
-		}
+	public String pedidoDetalle(Model model, RedirectAttributes rattr, @PathVariable("id") int idPedido, 
+			Principal principal, HttpSession session) {
 
-		if(producto.getStock()<(cantidad+yaEnCarrito)) {
-			rattr.addFlashAttribute("mensaje", "ERROR! No hay stock suficiente.");
-			return "redirect:/productos/detalle/"+idProducto;
-		} else {	
-			
-			ecdao.añadirProducto(idUser, idProducto, cantidad);
-			session.setAttribute("carrito", ecdao.porUsuario(idUser));
-
-			rattr.addFlashAttribute("mensaje", "Añadido correctamente al carrito");
-			return "redirect:/productos/detalle/"+idProducto;		
-		}*/
-		
 		model.addAttribute("pedido", dpdao.buscarPedido(idPedido) );
 		return "pedidocliente";
 	}

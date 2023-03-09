@@ -34,7 +34,13 @@
 				</div>
 			  </div>
 			</c:forEach>
-			</div>	
+						</div>	
+			
+		    <sec:authorize access="hasAuthority('Administrador')">				    
+			    <div class="btn-group mt-2">
+					<a class="btn btn-info" href="/productos/alta">Alta Producto</a>
+				</div>
+			</sec:authorize>    
 		</div>	
 		<div class="col-2">
 			<jsp:include page="carrito.jsp"/>
