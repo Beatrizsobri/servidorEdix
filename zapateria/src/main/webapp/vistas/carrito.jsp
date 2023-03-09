@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> 
 <!DOCTYPE html>
 <html>
@@ -15,9 +16,9 @@
 
   <a href="#carrito" class="btn btn-outline-warning btn-block" data-toggle="collapse">Carrito</a>
   <div id="carrito" class="collapse">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  <c:forEach var="elementoCarrito" items="${carrito}">
+  	${elementoCarrito.producto.nombre} - ${elementoCarrito.cantidad}<br/>
+  </c:forEach>
   </div>	
 	
 </body>
