@@ -51,6 +51,8 @@ public class DataUserConfiguration extends WebSecurityConfigurerAdapter{
 			.antMatchers("/usuarios/registro/direccion").hasAnyAuthority("Cliente")
 			.antMatchers("/usuarios/registro/tarjeta").hasAnyAuthority("Cliente")
 			.antMatchers("/usuarios/registro/administrador").hasAnyAuthority("Administrador")
+			
+			.antMatchers("/usuarios/clientes**").hasAnyAuthority("Administrador")
 			.antMatchers("/productos/eliminar/**").hasAnyAuthority("Administrador")
 			.antMatchers("/productos/modificar/**").hasAnyAuthority("Administrador")
 			.antMatchers("/logout").hasAnyAuthority("Administrador","Cliente")
