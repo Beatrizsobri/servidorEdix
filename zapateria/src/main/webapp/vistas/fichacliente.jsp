@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Gestión producto</title>
+<title>Ficha cliente</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -17,7 +18,7 @@
 	<div class="row m-3">	
 		<div class="col-10">
 			<div class="page-header m-4">
-		    	<h1>${mensaje}</h1>
+		    	<h1>Ficha cliente</h1>
 				<c:choose>
 			       <c:when test="${info == null}">
 			       </c:when>
@@ -30,29 +31,39 @@
 		    	<h2 class="mt-2"></h2>
 		  	</div>
 		  	<div>
-				<form method="post">
-					<div class="form-group">
-						<label for="nombre">Nombre</label>
-						<input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre" name="nombre" value="${producto.nombre}">
-					</div>
-					<div class="form-group">
-						<label for="descripcion">Descripción</label>
-						<input type="text" class="form-control" id="descripcion" placeholder="Ingrese la descripción" name="descripcion" value="${producto.descripcion}">
-					</div>
-					<div class="form-group">
-						<label for="precio">Precio</label>
-						<input type="number" class="form-control" id="precio" placeholder="Ingrese el precio" name="precio" step=".01" value="${producto.precio}">
-					</div>
-					<div class="form-group">
-						<label for="categoria">Categoría</label>
-						<input type="text" class="form-control" id="categoria" placeholder="Ingrese la categoría" name="categoria" value="${producto.categoria}">
-					</div>
-					<div class="form-group">
-						<label for="stock">Stock</label>
-						<input type="number" class="form-control" id="stock" placeholder="Ingrese el stock" name="stock" value="${producto.stock}">
-					</div>
-					<button type="submit" class="btn btn-primary">Enviar</button>
+				<form>				
+					<label for="Nombre">Nombre: ${cliente.nombre}</label><br>
+					<label for="Apellido">Apellido: ${cliente.apellido}</label><br>
+					<label for="Email">Email: ${cliente.email}</label><br>
+					<label for="Tel�fono">Tel�fono: ${cliente.telefono}</label>
 				</form>
+
+				<c:choose>
+			       <c:when test="${fn:length(requestScope.listapedidos) > 0}">
+					<table class="table table-striped table-sm" >
+	  				<tr>			
+						<th>Pedido</th>
+						<th>Fecha</th>
+						<th>Ver Pedido</th>	
+					</tr>
+					<c:forEach var="pedido" items="${listapedidos}" >
+						<tr>
+							<td>${pedido.idPedido}</td>
+							<td>${pedido.fecha}</td>
+							<td>ver</td>
+						</tr>
+					</c:forEach>
+				</table>
+
+			       </c:when>
+			       <c:otherwise>
+			             	<div class="alert alert-warning">
+								Este cliente no ha realizado pedidos
+							</div>
+			       </c:otherwise>
+			  	</c:choose>
+				
+
 			</div>	
 		</div>	
 	</div>
